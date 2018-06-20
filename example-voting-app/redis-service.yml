@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: db
+  name: redis
   labels:
-    name: db-service
+    name: redis-service
     app: demo-voting-app
 spec:
   ports:
