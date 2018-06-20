@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: redis-deployment
   labels:
-    app: redis
+    app: demo-voting-app
 spec:
   replicas: 1
   selector:
@@ -12,14 +12,14 @@ spec:
       app: demo-voting-app
   template:
     metadata:
-      name: postgres-pod
+      name: redis-pod
       labels:
-        name: postgres-pod
+        name: redis-pod
         app: demo-voting-app
 
     spec:
       containers:
-      - name: postgres
-        image: postgres:9.4
+      - name: redis
+        image: redis
         ports:
-        - containerPort: 5432
+        - containerPort: 6379
