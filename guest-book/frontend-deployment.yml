@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: guestbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: frontend
+      app: guestbook
+  template:
+    metadata:
+      name: frontend
+      labels:
+        name: frontend
+        app: guestbook
+    spec:
+      containers:
+      - name: frontend
+        image: kubernetes/guestbook:v2
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 3000
