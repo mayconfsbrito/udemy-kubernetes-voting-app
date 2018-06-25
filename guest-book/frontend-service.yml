@@ -4,13 +4,13 @@ metadata:
   name: frontend-service
   labels:
     app: guestbook
-    name: frontend
+    tier: frontend
 spec:
   type: LoadBalancer
   #type: NodePort
   ports:
   - port: 80
-    targetPort: 3000
+    #targetPort: 3000
   selector:
-    name: frontend-pod
     app: guestbook
+    tier: frontend
